@@ -3,7 +3,26 @@ from functions import add_stock, remove_stock, view_stock
 
 print("Welcome to your stock tracker")
 
-file_name = "list.csv"
+file_name = "stocks.csv"
+
+stocks = [
+    
+]
+# check if file csv exists
+try:
+    stock_file = open(file_name, "r")
+
+    #if it exists great
+    stock_file.close()
+    print("In try mode")
+
+    #if it doesn't exist, then we create it
+except FileNotFoundError as e:
+    stock_file = open(file_name, "w")
+    stock_file.write("title,completed\n")
+    stock_file.close()
+    print("In except block")
+
 
 def create_list():
     print("1. Enter '1' to add a new stock to your list")
@@ -20,11 +39,11 @@ while user_input != "4":
     user_input = create_list()
 
     if (user_input == "1"):
-        add_stock()
+        add_stock(file_name)
     elif (user_input == "2"):
         remove_stock()
     elif (user_input == "3"):
-        view_stock()
+        view_stock(file_name)
     elif (user_input == "4"):
         continue
     else:
