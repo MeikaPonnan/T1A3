@@ -1,6 +1,5 @@
 from colored import fg, bg, attr
-
-from functions import add_stock, remove_stock, view_stock
+from functions import add_stock, search_stock, remove_stock, view_stock, calculate_profit_loss, edit_stock 
 
 
 print(f"{fg('58')} {bg('118')} {attr('bold')} Welcome to your stock tracker {attr('reset')}")
@@ -9,19 +8,19 @@ file_name = "stocks.csv"
 
 stocks = []
 # check if file csv exists
-try:
-   stock_file = open(file_name, "r")
+#try:
+  # stock_file = open(file_name, "r")
 
     #if it exists great
-   stock_file.close()
-   print("In try mode")
+  # stock_file.close()
+  # print("In try mode")
 
     #if it doesn't exist, then we create it
-except FileNotFoundError as e:
-    stock_file = open(file_name, "w")
-    stock_file.write("Stocks,lists\n")
-    stock_file.close()
-    print("In except block")
+#except FileNotFoundError as e:
+  #  stock_file = open(file_name, "w")
+   # stock_file.write("Stocks,lists\n")
+   # stock_file.close()
+   # print("In except block")
 
 
 def create_list():
@@ -50,7 +49,7 @@ while user_input != "7":
     elif (user_input == "4"):
         view_stock(file_name)
     elif (user_input == "5"):
-        calculate_stock(file_name)
+        calculate_profit_loss(file_name)
     elif (user_input == "6"):
         edit_stock(file_name)
     elif (user_input == "7"):
