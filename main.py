@@ -3,7 +3,7 @@ from colored import fg, bg, attr
 from functions import add_stock, remove_stock, view_stock
 
 
-print(f"{fg('blue')} {bg('white')} Welcome to your stock tracker {attr('reset')}")
+print(f"{fg('58')} {bg('118')} {attr('bold')} Welcome to your stock tracker {attr('reset')}")
 
 file_name = "stocks.csv"
 
@@ -44,21 +44,21 @@ while user_input != "7":
     if (user_input == "1"):
         add_stock(file_name)
     elif (user_input == "2"):
-        search_stock()
+        search_stock(file_name)
     elif (user_input == "3"):
         remove_stock(file_name)
     elif (user_input == "4"):
         view_stock(file_name)
     elif (user_input == "5"):
-        calculate_stock()
+        calculate_stock(file_name)
     elif (user_input == "6"):
-        edit_stock()
+        edit_stock(file_name)
     elif (user_input == "7"):
         continue
     else:
-        print("Invalid. Please choose from the list")
+        print(f"{bg('196')} {attr('bold')} Invalid. Please choose from the list {attr('reset')}")
 
-    input("Press Enter to continue.")
+    input(f"{fg('184')} Press Enter to continue. {attr('reset')}")
 
 
-print("Thanks for your time!")
+print(f"{bg('46')} {attr('blink')} Thanks for your time! {attr('reset')}")
