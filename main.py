@@ -1,15 +1,13 @@
 from colored import fg, bg, attr
-from prettytable import PrettyTable
 import csv
 import pandas
+
 
 print(f"{fg('58')} {bg('118')} {attr('bold')} Welcome to your stock tracker {attr('reset')}")
 
 file_name = "stocks.csv"
 
 stocks = []
-
-x = PrettyTable()
 
 try:
    stock_file = open(file_name, "r")
@@ -43,7 +41,7 @@ def search_stock():
             view_stock(stock)
             found = True
         if not found:
-            print("Stock: " + ticker + " not found. Please try again.")
+            print(f"{fg('7')} {bg('9')} Stock not found. Please try again. {attr('reset')}")
 
 
 def view_stock(stock):
@@ -63,7 +61,7 @@ def save_data():
     with open(file_name, "w") as stock_file:
         writer = csv.writer(stock_file)
         writer.writerows(stocks)
-    print("Stocks saved successfully.")
+    print(f"{fg('8')} {bg('129')} {attr('bold')} Stocks saved successfully. {attr('reset')}")
 
 
 def remove_stock():
@@ -76,7 +74,7 @@ def remove_stock():
             save_data()
             found = True
     if not found:
-        print("Stock: " + ticker + " not found. Please try again.")
+        print(f"{fg('7')} {bg('9')} Stock not found. Please try again. {attr('reset')}")
 
 
 
@@ -92,7 +90,7 @@ def edit_stock():
             save_data()
             found = True
     if not found:
-        print("Stock: " + ticker + " not found. Please try again. ")
+        print(f"{fg('7')} {bg('9')} Stock not found. Please try again. {attr('reset')}")
 
 
 def calculate_profit_loss(stock):
