@@ -1,26 +1,107 @@
 from colored import fg, bg, attr
-from functions import add_stock, search_stock, remove_stock, view_stock, calculate_profit_loss, edit_stock 
-
+from prettytable import PrettyTable
+import csv
+import pandas
 
 print(f"{fg('58')} {bg('118')} {attr('bold')} Welcome to your stock tracker {attr('reset')}")
 
 file_name = "stocks.csv"
 
 stocks = []
-# check if file csv exists
-#try:
-  # stock_file = open(file_name, "r")
 
-    #if it exists great
-  # stock_file.close()
-  # print("In try mode")
+x = PrettyTable()
 
-    #if it doesn't exist, then we create it
-#except FileNotFoundError as e:
-  #  stock_file = open(file_name, "w")
-   # stock_file.write("Stocks,lists\n")
-   # stock_file.close()
-   # print("In except block")
+try:
+   stock_file = open(file_name, "r")
+
+   stock_file.close()
+   print("In try block")
+
+except FileNotFoundError as e:
+    stock_file = open(file_name, "w")
+    stock_file.write("Stocks,list\n")
+    stock_file.close()
+    print("In except block")
+
+
+def add_stock():
+    print("Add stock")
+    stock = []
+    stock.append(input("Enter the stock ticker: "))
+    stock.append(int(input("Enter the number of shares bought: ")))
+    stock.append(float(input("Enter the stock purchase price: ")))
+    stock.append(float(input("Enter the stock selling price: ")))
+    stocks.append(stock)
+    save_data()
+
+
+def search_stock():
+    ticker = input("Enter the ticker for the stock you're looking for: ")
+    found = False
+    for stock in stocks:
+        if stock[0].lower() == ticker.lower():
+            view_stock(stock)
+            found = True
+        if not found:
+            print("Stock: " + ticker + " not found. Please try again.")
+
+
+def view_stock(stock):
+    print("Ticker: " + stock[0])
+    print("Shares: " + str(stock[1]))
+    print("Purchase Price: " + str(stock[2]))
+    print("Selling Price: " + str(stock[3]))
+    print("Profit/Loss: " + str(calculate_profit_loss(stock)))
+        
+
+def view_stocks():
+    for stock in stocks:
+        view_stock(stock)
+        print()
+
+def save_data():
+    with open(file_name, "w") as stock_file:
+        writer = csv.writer(stock_file)
+        writer.writerows(stocks)
+    print("Stocks saved successfully.")
+
+
+def remove_stock():
+    print("Remove stock")
+    ticker = input("Enter the stock you want to remove: ")
+    found = False
+    for stock in stocks:
+        if stock[0].lower() == ticker.lower():
+            stocks.remove(stock)
+            save_data()
+            found = True
+    if not found:
+        print("Stock: " + ticker + " not found. Please try again.")
+
+
+
+def edit_stock():
+    ticker = input("Enter the stock ticker your want to edit: ")
+    found = False
+    for stock in stocks:
+        if stock[0].lower() == ticker.lower():
+            print("Enter the changes for the stock: ")
+            stock[1] = int(input("Enter the number of share bought: "))
+            stock[2] = float(input("Enter the purchase price: "))
+            stock[3] = float(input("Enter the selling price: "))
+            save_data()
+            found = True
+    if not found:
+        print("Stock: " + ticker + " not found. Please try again. ")
+
+
+def calculate_profit_loss(stock):
+    shares_number = stock[1]
+    purchase_price = stock[2]
+    selling_price = stock[3]
+    profit_loss = (selling_price - purchase_price) * shares_number
+    return profit_loss
+
 
 
 def create_list():
@@ -28,31 +109,41 @@ def create_list():
     print("2. Enter '2' to search for a stock")
     print("3. Enter '3' to take out a stock from your list")
     print("4. Enter '4' to view your stock list")
-    print("5. Enter '5' to view profit/loss on stocks")
-    print("6. Enter '6' to edit a stock")
-    print("7. Enter '7' to exit")
+    print("5. Enter '5' to edit a stock")
+    print("6. Enter '6' to exit")
     choice = input("What do you want to do? ")
     return choice
 
 
+
+try:
+   stock_file = open(file_name, "r")
+
+   stock_file.close()
+   print("In try block")
+
+except FileNotFoundError as e:
+    stock_file = open(file_name, "w")
+    stock_file.write("Stocks,list\n")
+    stock_file.close()
+    print("In except block")
+
 user_input = ""
 
-while user_input != "7":
+while user_input != "6":
     user_input = create_list()
 
     if (user_input == "1"):
-        add_stock(file_name)
+        add_stock()
     elif (user_input == "2"):
-        search_stock(file_name)
+        search_stock()
     elif (user_input == "3"):
-        remove_stock(file_name)
+        remove_stock()
     elif (user_input == "4"):
-        view_stock(file_name)
+        view_stocks()
     elif (user_input == "5"):
-        calculate_profit_loss(file_name)
+        edit_stock()
     elif (user_input == "6"):
-        edit_stock(file_name)
-    elif (user_input == "7"):
         continue
     else:
         print(f"{bg('196')} {attr('bold')} Invalid. Please choose from the list {attr('reset')}")
@@ -61,3 +152,5 @@ while user_input != "7":
 
 
 print(f"{bg('46')} {attr('blink')} Thanks for your time! {attr('reset')}")
+
+
