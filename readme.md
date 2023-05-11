@@ -9,16 +9,19 @@ Identify any code style guide or styling conventions that the application will a
 Reference the chosen style guide appropriately.
 
 
-### Develop a list of features that will be included in the application. It must include:
-- at least THREE features
-- describe each feature
+### Features included in the application:
+- Allows user to add stocks and ask users for name of the stock, number of shares bought, buying price and selling price.
+- Allows user to search for certain stock with writing the name for the stock, which then display all the info about the stock.
+- Allows user to view all stocks in the csv file.
+- Allows user to remove and edit stocks.
+- Calculates the profit and loss of the stocks which is included when user search for the stock or views all the stock info.
 
-Note: Ensure that your features above allow you to demonstrate your understanding of the following language elements and concepts:
-- use of variables and the concept of variable scope
-- loops and conditional control structures
-- error handling
 
-### Develop an implementation plan which:
+### Planning:
+
+
+
+Develop an implementation plan which:
 - outlines how each feature will be implemented and a checklist of tasks for each feature
 - prioritise the implementation of different features, or checklist items within a feature
 - provide a deadline, duration or other time indicator for each feature or checklist/checklist-item
