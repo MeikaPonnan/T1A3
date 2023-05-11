@@ -18,19 +18,16 @@ Reference the chosen style guide appropriately.
 
 
 ### Planning:
+I used monday.com to track my implementation plan.
+I worked on each feature until i got the code to run smoothly. This took a while since i got stuck when creating multiple files.
+Below is a screenshot of my implementation plan.
+![Plan](images/task_management.png)
 
 
+### How to install the application:
 
-Develop an implementation plan which:
-- outlines how each feature will be implemented and a checklist of tasks for each feature
-- prioritise the implementation of different features, or checklist items within a feature
-- provide a deadline, duration or other time indicator for each feature or checklist/checklist-item
 
-Utilise a suitable project management platform to track this implementation plan.
-
-Provide screenshots/images and/or a reference to an accessible project management platform used to track this implementation plan. 
-
-### Design help documentation which includes a set of instructions which accurately describe how to use and install the application.
+Design help documentation which includes a set of instructions which accurately describe how to use and install the application.
 
 You must include:
 - steps to install the application
