@@ -49,12 +49,6 @@ This should prop up:
 
 
 
-### Design TWO tests which check that the application is running as expected.
-
-Each test should:
-- cover a different feature of the application
-- state what is being tested
-- provide at least TWO test cases and the expected results for each test case
-
-> An outline of the testing procedure and cases should be included with the source code of the application
-
+### Testing:
+We can test the program's reading and writing capabilities by testing each functions.
+For example we can add stocks with specific inputs and see if the expected output is displayed. We can make sure the profit/loss out is diplayed when view stock or seach stock is requested.
