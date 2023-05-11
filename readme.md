@@ -3,11 +3,6 @@
 ### Link to Git Hub
 [Click on this link for me Git Hub repo](https://github.com/MeikaPonnan/T1A3)
 
-### Code style guide
-Identify any code style guide or styling conventions that the application will adhere to.
-
-Reference the chosen style guide appropriately.
-
 
 ### Features included in the application:
 - Allows user to add stocks and ask users for name of the stock, number of shares bought, buying price and selling price.
